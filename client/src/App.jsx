@@ -1,13 +1,15 @@
 import './App.css'
 
+import { Routes } from 'react-router-dom'
+
 function App() {
 
 
   return (
     <>
-      <div className='bg-blue-500'>
-        lms
-      </div>
+      <Routes>
+        
+      </Routes>
     </>
   )
 }
