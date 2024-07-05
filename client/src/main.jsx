@@ -2,7 +2,7 @@ import "./index.css";
 
 import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
-import Provider from "react-redux";
+import { Provider } from "react-redux"; // Correctly import Provider
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
