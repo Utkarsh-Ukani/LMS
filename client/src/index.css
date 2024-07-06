@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* Additional custom styles */
+body {
   margin: auto;
   max-width: 1540px;
   position: relative;
-  background-color: antiquewhite;
+  background-color: rgb(64, 93, 64);
 }
