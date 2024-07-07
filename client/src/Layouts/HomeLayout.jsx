@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 import Footer from "../Components/Footer";
+import { logout } from "../Redux/Slices/AuthSlice";
 
 function HomeLayout({ children }) {
   const dispatch = useDispatch();
@@ -26,11 +27,18 @@ function HomeLayout({ children }) {
     const drawerSide = document.getElementsByClassName("drawer-side");
     drawerSide[0].style.width = 0;
   }
-  function handleLogout(e) {
-    e.preventDefault();
-    // const res = await dispatch(logout());
-    // if(res?.payload?.success)
+  async function handleLogout(e) {
+    e.preventDefault(); // Prevents the default form submission behavior
+
+  // Dispatch the logout action
+  const res = await dispatch(logout());
+
+  // Check if the logout was successful
+  if (res.payload && res.payload.success) {
+    // Clear local storage and navigate to home page
+    localStorage.clear();
     navigate("/");
+  }
   }
 
   return (
@@ -79,7 +87,7 @@ function HomeLayout({ children }) {
                     <Link to="/login">Login</Link>
                   </button>
                   <button className="bg-yellow-300 px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to="/login">Sign Up</Link>
+                    <Link to="/signup">Sign Up</Link>
                   </button>
                 </div>
               </li>
